@@ -1,4 +1,4 @@
-const File = require('../models/File');
+const File = require('../models/file');
 const { admin } = require('../config/firebase');
 const { uploadFileToFirebase } = require('../services/firebaseUploader');
 const path = require('path');

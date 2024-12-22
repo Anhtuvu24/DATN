@@ -1,4 +1,4 @@
-const Project = require('../models/project');
+const Project = require('../models/Project');
 const ProjectType = require('../models/ProjectType');
 const User = require('../models/User');
 const Sprint = require('../models/Sprint');
