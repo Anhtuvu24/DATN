@@ -1,0 +1,49 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /*line-height: 1.5;*/
+  /*font-weight: 400;*/
+
+  /*color-scheme: light dark;*/
+  /*color: rgba(255, 255, 255, 0.87);*/
+  /*background-color: #242424;*/
+
+  /*font-synthesis: none;*/
+  /*text-rendering: optimizeLegibility;*/
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-osx-font-smoothing: grayscale;*/
+
+  /*color*/
+  --main-color: #EC1C2A;
+  --disable-color: #919EABCC;
+  --active-color: #637381;
+
+  /*icon color*/
+  --main-icon-color: #637381;
+  --disable-icon-color: #919EABCC;
+  --hover-color: #091E420F;
+
+  /*backgroud color*/
+  --main-background-color: #FFF;
+  --second-background-color: #F7F8F9;
+
+  /*Text color*/
+  --main-text-color: #212B36;
+  --white-text-color: #FFFFFF;
+  --second-text-color: #212B36;
+  --third-text-color: #637381;
+  --text-danger: #AE2E24;
+  --text-warning: #A54800;
+  --text-warning-inverse: #172B4D;
+  --text-success: #216E4E;
+  --text-disabled: #091E424F;
+
+  /*border*/
+  --border-color: #d9d9d9;
+}
+
+div[style*="placeholder"] {
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+}
