@@ -31,7 +31,7 @@ export const NavigationWrapper = styled.div`
     align-items: center;
     gap: 8px;
     margin-right: 8px;
-    
+
     .ant-badge-count {
       transform: unset !important;
     }
@@ -129,7 +129,7 @@ export const ListNotiSearch = styled.div`
       flex-direction: column;
       gap: 4px;
       overflow: hidden;
-      
+
       .notiName {
         font-weight: 600;
         > span {
@@ -203,4 +203,18 @@ export const DropDownButton = styled.div`
     font-size: 14px;
     color: #44546F;
   }
+`
+
+export const NodataMenu = styled.div`
+  padding: 4px;
+  list-style-type: none;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `

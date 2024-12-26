@@ -15,7 +15,7 @@ import AvatarCustom from "../AvatarCustom/index.jsx";
 import {updateTask} from "../../redux/main/actions/task.js";
 import {useParams} from "react-router-dom";
 import createNotification from "../../utils/notificationHelper.js";
-import Priority from "../Priority/index.jsx";
+import Priority from "../Priority";
 
 const { Panel } = Collapse;
 const { Option } = Select;
@@ -72,7 +72,7 @@ function TaskInforDetail({ loading }) {
     const itemStatusSelect = statuses.find(item => item.id === statusValue);
     const colorItem = itemStatusSelect?.name === 'TO DO' ? { color: '#44546F', bgColor: '#091E420F'}
         : itemStatusSelect?.name === 'DONE' ? { color: '#216E4E', bgColor: '#DCFFF1'}
-        : { color: '#0055CC', bgColor: '#E9F2FF'};
+            : { color: '#0055CC', bgColor: '#E9F2FF'};
 
     useEffect(() => {
         if (!loading) {
@@ -105,7 +105,7 @@ function TaskInforDetail({ loading }) {
     const onChangePriority = async (value) => {
         const res = await dispatch(updateTask(taskId, { priority: value }));
         if (res.status !== 200) {
-            createNotification('error', 'Changed assignee fail');
+            createNotification('error', 'Changed priority fail');
         }
     }
 

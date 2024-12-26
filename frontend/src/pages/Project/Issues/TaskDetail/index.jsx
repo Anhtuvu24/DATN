@@ -32,16 +32,16 @@ import {
     AttachmentsTaskWrapper,
     ActivityWrapper, MentionLabelWrapper,
 } from "./local.styles.js";
-import CKEditorCustom from "../../../../components/CKEditor/index.jsx";
-import CommentComp from "../../../../components/CommentComp/index.jsx";
-import TaskInforDetail from "../../../../components/TaskInforDetail/index.jsx";
+import CKEditorCustom from "../../../../components/CKEditor";
+import CommentComp from "../../../../components/CommentComp";
+import TaskInforDetail from "../TaskInforDetail";
 import {useHistory, useLocation, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getTask, updateTask} from "../../../../redux/main/actions/task.js";
 import createNotification from "../../../../utils/notificationHelper.js";
 import {CommentItemWrapper} from "../../../../components/CommentComp/local.styles.js";
 import {getProject} from "../../../../redux/main/actions/project.js";
-import FileComp from "../../../../components/FileComp/index.jsx";
+import FileComp from "../../../../components/FileComp";
 import {createFile} from "../../../../redux/main/actions/file.js";
 import AvatarCustom from "../../../../components/AvatarCustom/index.jsx";
 import {createComment} from "../../../../redux/main/actions/comment.js";
@@ -97,7 +97,7 @@ function FileDetail({ taskId, idProject }) {
     const itemsBreadcrumb = [
         {
             title: loading ? <Skeleton.Button active={true} size={"small"} /> : task?.no_task,
-            path: `/task/${taskId}`
+            path: `/project/${idProject}/task/${taskId}`
         },
     ];
 
@@ -140,7 +140,7 @@ function FileDetail({ taskId, idProject }) {
             // const mentions = getMentions(comment);
             const res = await dispatch(createComment({id_user: me?.id, id_task: taskId, text: comment}));
             if (res.status !== 201 || res.status !== 200)
-            form.resetFields();
+                form.resetFields();
             setComment('');
         } catch (errInfo) {
             console.log('Error:', errInfo);
@@ -265,8 +265,8 @@ function FileDetail({ taskId, idProject }) {
                                         {files?.map(item => {
                                             return (
                                                 // <div className={'attachment'}>
-                                                    <FileComp key={item.id} file={item} size={140} />
-                                                    // <div className={'removeBtn'}><IoMdTrash fontSize={18} color={'#f3545d'} /></div>
+                                                <FileComp key={item.id} file={item} size={140} />
+                                                // <div className={'removeBtn'}><IoMdTrash fontSize={18} color={'#f3545d'} /></div>
                                                 // </div>
                                             )
                                         })}
@@ -384,7 +384,7 @@ function FileDetail({ taskId, idProject }) {
                     </MainContentWrapper>
                 </Splitter.Panel>
                 <Splitter.Panel min={240}>
-                    <TaskInforDetail loading={loading} />
+                    <TaskInforDetail taskId={taskId} idProject={idProject} loading={loading} />
                 </Splitter.Panel>
             </Splitter>
         </FileDetailContainer>

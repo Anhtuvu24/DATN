@@ -9,7 +9,7 @@ import {Button, Form, Input, Select, Skeleton, Space, Upload} from "antd";
 import {getMe, uploadAvatar} from "../../redux/main/actions/auth.js";
 import createNotification from "../../utils/notificationHelper.js";
 import {updateUser} from "../../redux/main/actions/user.js";
-import Priority from "../../components/Priority/index.jsx";
+import Priority from "../../components/Priority";
 import {useHistory} from "react-router-dom";
 import cvsLogo from "../../assets/images/logo-cvs.svg";
 
@@ -74,7 +74,7 @@ function Profile() {
         setGender(value);
         const res = await dispatch(updateUser(me?.id, { gender: value }));
         if (res.status !== 200) {
-            createNotification('error', 'Changed name fail');
+            createNotification('error', 'Changed gender fail');
             setGender(me?.gender);
         }
     }
